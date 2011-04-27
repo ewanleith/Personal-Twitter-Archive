@@ -22,11 +22,6 @@ function getTweets(res)
 
 function buildPage(res,items)
 {
-	var tweetstring = ''
-	for (var t in items)
-	{
-	tweetstring = tweetstring + ' '+ items[t]['created_at']+' '+items[t]['from_user']+' '+items[t]['text']+'<br>\n';
-	}
 	res.render('index.jade', {tweets:items, pageTitle:'Your Personal Twitter Archive'});
 	//console.log(items[0]); // Show top entry
 }
