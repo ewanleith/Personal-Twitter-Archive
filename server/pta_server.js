@@ -25,11 +25,11 @@ function printTweet(tweetdata) {
 
 
 function launchCollect() {
-	rest.get('http://search.twitter.com/search.json?q='+username).on('success', function(data) {
+	rest.get('http://search.twitter.com/search.json?q='+username, {  headers: { 'User-Agent': 'Personal Twitter Archive', 'Referer': 'https://github.com/ewanleith/Personal-Twitter-Archive' }}).on('success', function(data) {
 		async.forEach(data['results'], printTweet, function(err) {
 		});
 	});
-	rest.get('http://search.twitter.com/search.json?q=+from%3A'+username).on('success', function(data) {
+	rest.get('http://search.twitter.com/search.json?q=+from%3A'+username, {  headers: { 'User-Agent': 'Personal Twitter Archive', 'Referer': 'https://github.com/ewanleith/Personal-Twitter-Archive' }}).on('success', function(data) {
 		async.forEach(data['results'], printTweet, function(err) {
 		});
 	});
