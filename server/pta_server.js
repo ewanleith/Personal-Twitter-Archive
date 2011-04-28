@@ -33,7 +33,7 @@ function launchCollect() {
 		async.forEach(data['results'], printTweet, function(err) {
 		});
 	});
-	setTimeout("launchCollect()", 60000);
+	setTimeout(launchCollect, 60000);
 }
 
 setTimeout(launchCollect, 100);
