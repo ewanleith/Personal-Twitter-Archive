@@ -8,15 +8,17 @@ function getTweets(res)
 	new mongodb.Db('twitterarchive', server, {}).open(function (error, client) {
 	if (error) throw error;
 	var collection = new mongodb.Collection(client, 'archive');
-	collection.find({},{'from_user':1,'created_at':1,'text':1},{sort:[['created_at','desc']]}, function(err,cursor) {
+	collection.find({},{'id_str':1,'from_user':1,'created_at':1,'text':1},{sort:[['created_at','desc']]}, function(err,cursor) {
 	//collection.find({},{sort:[['created_at','desc']]}, function(err,cursor) {
 		cursor.toArray(function(err, items) {
 		//console.log(items[0]);
 		//console.log(items[1]);
 		buildPage(res,items);
+		//server.close();
 		})
 	})
 })
+
 
 }
 

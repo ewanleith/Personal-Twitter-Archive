@@ -14,10 +14,24 @@ function printTweet(tweetdata) {
 	new mongodb.Db('twitterarchive', server, {}).open(function (error, client) {
   	if (error) throw error;
   	var collection = new mongodb.Collection(client, 'archive');
-	collection.update([tweetdata][0],[tweetdata][0],{upsert:true}, function(err) {
-    if (err) console.warn(err.message);
-  	});
 	//console.log([tweetdata][0]); //Output logged data to console
+	var d1 = new Date([tweetdata][0]['created_at']);
+	[tweetdata][0]['created_at']=d1;
+	//console.log([tweetdata][0]['created_at']); //Output logged data to console
+	//collection.insert([tweetdata][0],function(err) {
+    collection.update([tweetdata][0],[tweetdata][0],{upsert:true}, function(err) {
+    if (err)
+	{
+		console.warn(err.message);
+		console.log('Error :'+[tweetdata][0]); //Output logged data to console
+		server.close();
+	}
+	else
+	{
+		//console.log([tweetdata][0]); //Output logged data to console
+		server.close();
+	}
+  	});
 });
 
 
