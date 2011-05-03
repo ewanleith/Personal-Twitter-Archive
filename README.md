@@ -16,7 +16,9 @@ First, you need MongoDB running locally, then run
 	cd server
 	node pta_server.js &
 	cd ../client
-Edit the pta.js file to contain your username
+
+Edit the pta.js file to contain your username then run
+
 	node pta.js &
 
 However, note that github tarballs **do not contain submodules**, so
