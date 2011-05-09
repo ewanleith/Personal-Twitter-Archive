@@ -47,7 +47,9 @@ function launchCollect() {
 		async.forEach(data['results'], printTweet, function(err) {
 		});
 	});
-	setTimeout(launchCollect, 60000);
+	//setTimeout(launchCollect, 60000);
+    console.log('Looping'); //Output logged data to console
+
 }
 
-setTimeout(launchCollect, 100);
+setInterval(launchCollect, 60000);
