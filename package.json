@@ -1,0 +1,12 @@
+{
+  "name":"ewantwitter",
+  "version":"0.0.1",
+  "dependencies":{
+"express":"",
+"mongodb":"",
+"jade":"",
+"async":"",
+"restler":""
+  }
+}
+

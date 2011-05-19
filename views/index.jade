@@ -1,0 +1,15 @@
+h1= pageTitle
+p This Twitter archive consists of every tweet I make, and all tweets mentioning me
+
+- if (tweets.length)
+  - each val,key in tweets
+    ul
+      li Sent at: #{val.created_at}
+      li 
+        a(href='http://twitter.com/'+val.from_user) From user: #{val.from_user}
+      li Text: #{val.text} 
+      li
+        a(href='http://twitter.com/'+val.from_user+'/status/'+val.id_str) Permalink
+      
+p
+a(href='http://www.ewanleith.com') Created by Ewan Leith
