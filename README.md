@@ -25,4 +25,4 @@ Once everything starts cleanly
 Point your web browser to the server running app.js on port 3000, e.g.
 	http://127.0.0.1:3000
 
-
+The code also works correctly on CloudFoundry, just bind a MongoDB service to your app and it will automatically detect the MongoDB username and URL to use
