@@ -104,13 +104,20 @@ function printTweet(tweetdata) {
 
 
 function launchCollect() {
-	rest.get('http://search.twitter.com/search.json?q='+username, {  headers: { 'User-Agent': 'Personal Twitter Archive', 'Referer': 'https://github.com/ewanleith/Personal-Twitter-Archive' }}).on('success', function(data) {
-		async.forEach(data['results'], printTweet, function(err) {
-		});
+	rest.get('http://search.twitter.com/search.json?q='+username, {  headers: { 'User-Agent': 'Personal Twitter Archive', 'Referer': 'https://github.com/ewanleith/Personal-Twitter-Archive' }}).on('complete', function(data,response) {
+		if (response.statusCode == 200)
+		{
+			async.forEach(data['results'], printTweet, function(err) { })
+		}
 	});
-	rest.get('http://search.twitter.com/search.json?q=+from%3A'+username, {  headers: { 'User-Agent': 'Personal Twitter Archive', 'Referer': 'https://github.com/ewanleith/Personal-Twitter-Archive' }}).on('success', function(data) {
-		async.forEach(data['results'], printTweet, function(err) {
-		});
+
+
+
+	rest.get('http://search.twitter.com/search.json?q=+from%3A'+username, {  headers: { 'User-Agent': 'Personal Twitter Archive', 'Referer': 'https://github.com/ewanleith/Personal-Twitter-Archive' }}).on('complete', function(data,response) {
+		if (response.statusCode == 200)
+		{
+			async.forEach(data['results'], printTweet, function(err) { })
+		}
 	});
     //console.log('Looping'); //Output logged data to console
 
