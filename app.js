@@ -109,6 +109,8 @@ function launchCollect() {
 		{
 			async.forEach(data['results'], printTweet, function(err) { })
 		}
+	}).on('error', function(err) {
+		console.warn(err);
 	});
 
 
@@ -118,7 +120,10 @@ function launchCollect() {
 		{
 			async.forEach(data['results'], printTweet, function(err) { })
 		}
-	});
+	}).on('error', function(err) {
+        console.warn(err);
+    });
+
     //console.log('Looping'); //Output logged data to console
 
 }
