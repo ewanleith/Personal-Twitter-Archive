@@ -69,8 +69,12 @@ app.get('/', function(req, res){
 		getTweets(res);
 });
 
+app.get('/robots.txt', function(req, res){ 
+ 	res.sendfile('robots.txt');
+});
+
 app.get('*', function(req, res){
-  res.send('Page not found, should be a 404 here');
+  res.send('Page not found, should be a 404 here', 404);
 });
 
 
